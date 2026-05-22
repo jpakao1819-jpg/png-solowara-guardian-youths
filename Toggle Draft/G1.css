@@ -1,0 +1,101 @@
+.menu {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    position: absolute;
+}
+
+.menu .toggle {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 5;
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.37);
+    border: 2px solid #FFD700;
+}
+
+.menu .toggle:hover {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 165, 0, 0.6), 0 8px 32px rgba(255, 215, 0, 0.5);
+    border: 2px solid #FFD700;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.menu ul {
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    position: absolute;
+    transform: rotate(calc(var(--i) * (360deg / 6))) translateX(0px);
+    transform-origin: 200px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.menu ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border: 2px solid var(--clr);
+    border-radius: 50%;
+    transform: rotate(calc(var(--i) * (-360deg / 6)));
+    text-decoration: none;
+    color: var(--clr);
+    font-size: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.menu ul li a:hover {
+    transform: rotate(calc(var(--i) * (-360deg / 6))) scale(1.1);
+    box-shadow: 0 0 20px var(--clr), 0 0 40px var(--clr), 0 0 60px var(--clr);
+}
+
+/* TikTok special gradient effect */
+.menu ul li:nth-child(2) a:hover {
+    background: linear-gradient(45deg, #FF0050, #00F2EA);
+    border: 2px solid transparent;
+    box-shadow: 0 0 30px #FF0050, 0 0 50px #00F2EA, 0 0 70px #FF0050;
+}
+
+.menu.active ul li {
+    transform: rotate(calc(var(--i) * 90deg)) translateX(60px);
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu .active .toggle {
+    transform: rotate(360deg);
+    box-shadow: 
+        0 6px 8px  rgba(0, 0, 0, 0.15),
+        0 0 0 2px #333,
+        0 0 0 8px #fff,  
+}
