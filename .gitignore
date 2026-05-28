@@ -1,0 +1,13 @@
+# Node modules
+node_modules/
+
+# React project artifacts
+artifacts/
+
+# Draft files
+Toggle Draft/
+Draft 1 .mp4
+
+# OS files
+.DS_Store
+Thumbs.db
