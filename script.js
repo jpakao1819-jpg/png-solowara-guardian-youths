@@ -83,6 +83,18 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
         });
         
+        // Touch events for mobile
+        toggle.addEventListener('touchstart', function(e) {
+            isDragging = true;
+            dragMoved = false;
+            const touch = e.touches[0];
+            startX = touch.clientX;
+            startY = touch.clientY;
+            initialLeft = parseInt(menu.style.left);
+            initialTop = parseInt(menu.style.top);
+            e.preventDefault();
+        }, { passive: false });
+        
         document.addEventListener('mousemove', function(e) {
             if (!isDragging) return;
             
@@ -102,7 +114,34 @@ document.addEventListener('DOMContentLoaded', function() {
             menu.style.top = newY + 'px';
         });
         
+        document.addEventListener('touchmove', function(e) {
+            if (!isDragging) return;
+            
+            const touch = e.touches[0];
+            const dx = touch.clientX - startX;
+            const dy = touch.clientY - startY;
+            
+            if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+                dragMoved = true;
+            }
+            
+            // Clamp position to keep menu on screen
+            const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+            const newX = clamp(initialLeft + dx, TOGGLE_SIZE / 2, window.innerWidth - TOGGLE_SIZE / 2);
+            const newY = clamp(initialTop + dy, TOGGLE_SIZE / 2, window.innerHeight - TOGGLE_SIZE / 2);
+            
+            menu.style.left = newX + 'px';
+            menu.style.top = newY + 'px';
+            e.preventDefault();
+        }, { passive: false });
+        
         document.addEventListener('mouseup', function(e) {
+            if (isDragging) {
+                isDragging = false;
+            }
+        });
+        
+        document.addEventListener('touchend', function(e) {
             if (isDragging) {
                 isDragging = false;
             }
