@@ -1,3 +1,21 @@
+// Disable right-click context menu
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+});
+
+// Disable keyboard shortcuts for copying
+document.addEventListener('keydown', function(e) {
+    // Disable Ctrl+C, Ctrl+A, Ctrl+S, Ctrl+P, Ctrl+U, F12
+    if (
+        (e.ctrlKey && (e.key === 'c' || e.key === 'a' || e.key === 's' || e.key === 'p' || e.key === 'u')) ||
+        e.key === 'F12'
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});
+
 // Mobile menu toggle
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
