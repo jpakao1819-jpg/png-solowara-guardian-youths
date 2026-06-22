@@ -51,6 +51,37 @@ img {
     pointer-events: none;
 }
 
+/* Logo Animations */
+@keyframes logoEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(-20px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1) translateY(0px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+    }
+}
+
+@keyframes logoSpin {
+    0% {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(10deg) scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
 body {
     font-family: 'Georgia', 'Times New Roman', serif;
     line-height: 1.8;
@@ -134,6 +165,11 @@ body::before {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-family: 'Georgia', serif;
     letter-spacing: 1px;
+    animation: logoEntrance 1.5s ease-out;
+}
+
+.logo img {
+    animation: logoSpin 1.5s ease-out;
 }
 
 .logo::after {
