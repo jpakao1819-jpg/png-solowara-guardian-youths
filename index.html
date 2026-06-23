@@ -9,32 +9,37 @@
     <meta name="googlebot" content="noindex, nofollow">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
+    <meta http-equiv="Expires" content="31536000">
 </head>
 <body>
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="logo">
-                <img src="SYG.png" alt="Solwara Youth Guardian" style="height: 50px;">
+                <img src="SYG.png" alt="Solwara Youth Guardian" style="height: 50px;" loading="lazy">
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#objectives">Objectives</a></li>
-                <li><a href="#impact">Impact</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#innovation">Innovation</a></li>
-                <li><a href="#funding">Funding</a></li>
-                <li><a href="#involved">Get Involved</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#home" role="menuitem">Home</a></li>
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#objectives" role="menuitem">Objectives</a></li>
+                <li role="none"><a href="#impact" role="menuitem">Impact</a></li>
+                <li role="none"><a href="#team" role="menuitem">Team</a></li>
+                <li role="none"><a href="#innovation" role="menuitem">Innovation</a></li>
+                <li role="none"><a href="#funding" role="menuitem">Funding</a></li>
+                <li role="none"><a href="#involved" role="menuitem">Get Involved</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">Menu</button>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle mobile menu" aria-expanded="false">Menu</button>
         </div>
     </nav>
 
     <!-- 1. Homepage / Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
+        <div class="container" id="main-content">
             <h1>Protecting Our Seas, Empowering Our Future</h1>
             <p class="hero-intro">Solwara Youth Guardian (SYG INC) is dedicated to marine conservation and youth empowerment in Papua New Guinea. Together, we can create a sustainable future for our oceans and communities.</p>
             <div class="hero-buttons">
@@ -289,6 +294,17 @@
             <p>&copy; 2024 Solwara Youth Guardian. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" title="Scroll to top">↑</button>
+
+    <!-- Page Progress Indicator -->
+    <div class="page-progress" id="pageProgress"></div>
 
     <!-- Floating Radial Menu -->
     <div class="radial-menu">
