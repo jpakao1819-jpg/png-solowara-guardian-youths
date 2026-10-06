@@ -1,4 +1,4 @@
-// Disable right-click context menu
+﻿// Disable right-click context menu
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
     return false;
@@ -60,9 +60,10 @@ if (pageProgress) {
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
     const menuBtn = document.querySelector('.mobile-menu-btn');
+    if (!navLinks) return;
     navLinks.classList.toggle('active');
     const isExpanded = navLinks.classList.contains('active');
-    menuBtn.setAttribute('aria-expanded', isExpanded);
+    if (menuBtn) menuBtn.setAttribute('aria-expanded', isExpanded);
 }
 
 // Smooth scrolling for navigation links
@@ -76,7 +77,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
             // Close mobile menu if open
             const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.remove('active');
+            if (navLinks) navLinks.classList.remove('active');
         }
     });
 });
@@ -104,6 +105,7 @@ function handleSubmit(event) {
 // Add scroll effect to navbar
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
     if (window.scrollY > 50) {
         navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     } else {
@@ -267,3 +269,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
