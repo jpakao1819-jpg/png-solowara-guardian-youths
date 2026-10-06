@@ -239,7 +239,7 @@ body::before {
     box-shadow: 0 4px 20px rgba(61, 41, 20, 0.4);
     backdrop-filter: blur(10px);
     border-bottom: 3px solid var(--forest-primary);
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 98% 100%, 2% 100%, 0 85%);
+    border-bottom: 2px solid var(--forest-primary);
 }
 
 .navbar .container {
@@ -286,7 +286,10 @@ body::before {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 0.65rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
@@ -1049,6 +1052,17 @@ body::before {
     position: fixed;
     z-index: 9999;
     cursor: grab;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.radial-menu.dragging {
+    cursor: grabbing;
+}
+
+.radial-menu.dragging .radial-toggle {
+    cursor: grabbing;
 }
 
 .radial-menu:active {
@@ -1368,10 +1382,7 @@ body::before {
 
     /* Radial menu adjustments for mobile */
     .radial-menu {
-        bottom: 20px !important;
-        right: 20px !important;
-        left: auto !important;
-        top: auto !important;
+        /* Draggable freely on mobile */
     }
 
     .radial-toggle {
